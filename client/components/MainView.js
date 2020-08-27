@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import Swipeout from "react-native-swipeout";
 import { StyleSheet, Text, View, Button } from "react-native";
 
 export default class MainView extends React.Component {

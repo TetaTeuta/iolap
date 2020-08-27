@@ -54,8 +54,12 @@ export default class MainView extends React.Component {
     const movies = this.state.list.map((movie, key) => {
       console.log(movie);
       return (
-        <TouchableOpacity onPress={() => this.getMovie(movie.id)}>
-          <View movie={movie} style={styles.movie__preview} key={key}>
+        <TouchableOpacity
+          onPress={() => {
+            this.getMovie(movie.id);
+          }}
+        >
+          <View style={styles.movie__preview} key={key}>
             <Button
               style={styles.button__main}
               title="X"
@@ -73,13 +77,14 @@ export default class MainView extends React.Component {
     return (
       <ScrollView>
         <View style={styles.container}>
-          {movies}
-          <Button
-            title="Add Movie"
-            color="#E9AFA3"
-            onPress={() => this.props.navigation.navigate("PostMovie")}
+          <TouchableOpacity
             style={styles.button__main}
-          />
+            onPress={() => this.props.navigation.navigate("PostMovie")}
+          >
+            <Text>Add movie</Text>
+          </TouchableOpacity>
+
+          {movies}
         </View>
       </ScrollView>
     );
@@ -112,6 +117,7 @@ const styles = StyleSheet.create({
     color: "#ffffff"
   },
   button__main: {
-    borderRadius: 50
+    borderRadius: 50,
+    color: "#E9AFA3"
   }
 });

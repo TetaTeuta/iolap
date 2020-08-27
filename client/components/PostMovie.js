@@ -10,8 +10,6 @@ import {
   TouchableOpacity
 } from "react-native";
 
-const axios = require("axios").default;
-
 class PostMovie extends React.Component {
   constructor() {
     super();
@@ -22,11 +20,6 @@ class PostMovie extends React.Component {
   }
 
   updateValue(text, field) {
-    // this.setState({ name: text });
-    // this.setState({ genre: text });
-    // this.setState({ rating: text });
-    // this.setState({ explicit: text });
-
     if (field == "name") {
       this.setState({
         name: text
@@ -52,7 +45,7 @@ class PostMovie extends React.Component {
       (collection.genre = this.state.genre),
       (collection.rating = this.state.rating),
       (collection.explicit = this.state.explicit);
-    console.warn(collection);
+    console.log(collection);
 
     const url = "http://192.168.5.13:3000/api/v1/movies/";
 
@@ -88,12 +81,7 @@ class PostMovie extends React.Component {
           placeholder="Explicit"
           onChangeText={(text) => this.updateValue(text, "explicit")}
         />
-
-        <TouchableOpacity
-          onPress={() => this.submitValue()}
-          style={styles.button__main}
-          color="#E9AFA3"
-        >
+        <TouchableOpacity onPress={() => this.submitValue()} color="#E9AFA3">
           <Text>Submit</Text>
         </TouchableOpacity>
       </View>

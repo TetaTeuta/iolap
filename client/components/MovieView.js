@@ -2,12 +2,19 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 class MovieView extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     singleMovie: {}
+  //   };
+  // }
   render() {
-    const { list } = this.props;
+    const { movie } = this.props;
+    console.log(movie + "movieviw");
 
     return (
       <View style={styles.container}>
-        <Text>{list.name}</Text>
+        <Text>{movie.name}</Text>
       </View>
     );
   }

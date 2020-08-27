@@ -1,6 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  ScrollView,
+  TouchableOpacity
+} from "react-native";
 
 export default class MainView extends React.Component {
   constructor(props) {
@@ -23,6 +30,16 @@ export default class MainView extends React.Component {
       });
   }
 
+  getMovie(movieid) {
+    fetch("http://192.168.5.13:3000/api/v1/movies/" + movieid, {
+      method: "GET",
+      header: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    }).then(this.props.navigation.navigate("MovieView"));
+  }
+
   deleteMovie(movieid) {
     fetch("http://192.168.5.13:3000/api/v1/movies/" + movieid, {
       method: "DELETE",
@@ -35,22 +52,37 @@ export default class MainView extends React.Component {
 
   render() {
     const movies = this.state.list.map((movie, key) => {
+      console.log(movie);
       return (
-        <View style={styles.movie__preview} key={key}>
-          <Button
-            style={styles.button__delete}
-            title="X"
-            color="#pink"
-            onPress={() => this.deleteMovie(movie.id)}
-          />
+        <TouchableOpacity onPress={() => this.getMovie(movie.id)}>
+          <View movie={movie} style={styles.movie__preview} key={key}>
+            <Button
+              style={styles.button__main}
+              title="X"
+              color="#pink"
+              onPress={() => this.deleteMovie(movie.id)}
+            />
 
-          <Text style={styles.movie__header}>{movie.name}</Text>
-          <Text style={styles.movie__text}>{movie.genre}</Text>
-        </View>
+            <Text style={styles.movie__header}>{movie.name}</Text>
+            <Text style={styles.movie__text}>{movie.genre}</Text>
+          </View>
+        </TouchableOpacity>
       );
     });
 
-    return <View style={styles.container}>{movies}</View>;
+    return (
+      <ScrollView>
+        <View style={styles.container}>
+          {movies}
+          <Button
+            title="Add Movie"
+            color="#E9AFA3"
+            onPress={() => this.props.navigation.navigate("PostMovie")}
+            style={styles.button__main}
+          />
+        </View>
+      </ScrollView>
+    );
   }
 }
 
@@ -79,7 +111,7 @@ const styles = StyleSheet.create({
   movie__text: {
     color: "#ffffff"
   },
-  button__delete: {
+  button__main: {
     borderRadius: 50
   }
 });

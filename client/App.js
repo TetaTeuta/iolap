@@ -1,6 +1,5 @@
 import React from "react";
 import MainView from "./components/MainView";
-import MovieView from "./components/MovieView";
 import { StyleSheet, Text, View } from "react-native";
 
 class App extends React.Component {

@@ -33,29 +33,39 @@ export default class App extends React.Component {
     const movies = this.state.dataSource.map((movie, key) => {
       return (
         <View style={styles.movie__preview} key={key}>
-          <Text>{movie.name}</Text>
+          <Text style={styles.movie__header}>{movie.name}</Text>
+          <Text style={styles.movie__text}>{movie.genre}</Text>
         </View>
       );
     });
-    console.log(movies);
 
-    return <View>{movies}</View>;
+    return <View style={styles.container}>{movies}</View>;
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F9DEC9",
+    backgroundColor: "#685044",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    padding: 14
   },
   movie__preview: {
-    flex: 1,
+    margin: 10,
+    height: 100,
+    width: 300,
     alignItems: "center",
-    alignSelf: "stretch",
-    margin: 50,
     justifyContent: "center",
-    backgroundColor: "#3A405A"
+    backgroundColor: "#3A405A",
+    borderRadius: 20
+  },
+  movie__header: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#ffffff"
+  },
+  movie__text: {
+    color: "#ffffff"
   }
 });

@@ -12,32 +12,15 @@ const Stack = createStackNavigator();
 class App extends React.Component {
   render() {
     return (
-      <NavigationContainer
-        screenOptions={{ headerTransparent: true }}
-        style={styles.container}
-      >
+      <NavigationContainer>
         <Stack.Navigator initialRouteName="MainView">
           <Stack.Screen name="MainView" component={MainView} />
           <Stack.Screen name="MovieView" component={MovieView} />
           <Stack.Screen name="PostMovie" component={PostMovie} />
         </Stack.Navigator>
-
-        {/* <View style={styles.container}>
-        <MainView />
-      </View> */}
       </NavigationContainer>
     );
   }
 }
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#685044",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 14
-  }
-});

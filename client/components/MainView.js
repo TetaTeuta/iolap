@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   StyleSheet,
   Text,
@@ -24,16 +25,6 @@ export default class MainView extends React.Component {
     const json = await response.json();
     this.setState({ data: json });
   };
-
-  getMovie(movieid) {
-    fetch("http://192.168.5.13:3000/api/v1/movies/" + movieid, {
-      method: "GET",
-      header: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    }).then(this.props.navigation.navigate("MovieView", { data: movieid }));
-  }
 
   deleteMovie(movieid) {
     fetch("http://192.168.5.13:3000/api/v1/movies/" + movieid, {
@@ -62,13 +53,20 @@ export default class MainView extends React.Component {
             data={this.state.data}
             keyExtructor={(x, i) => i}
             renderItem={({ item }) => (
-              <View style={styles.movie__preview}>
+              <TouchableOpacity
+                style={styles.movie__preview}
+                onPress={() =>
+                  this.props.navigation.navigate("MovieView", {
+                    data: item
+                  })
+                }
+              >
                 <TouchableOpacity onPress={() => this.deleteMovie(item.id)}>
                   <Text style={styles.button__delete}>X</Text>
                 </TouchableOpacity>
                 <Text style={styles.movie__header}>{item.name}</Text>
                 <Text style={styles.movie__text}>{item.genre}</Text>
-              </View>
+              </TouchableOpacity>
             )}
           />
         </View>

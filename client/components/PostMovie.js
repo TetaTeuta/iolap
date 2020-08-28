@@ -84,6 +84,7 @@ class PostMovie extends React.Component {
         <TextInput
           style={styles.textinput__box}
           placeholder="Explicit"
+          keyboardType="number-pad"
           onChangeText={(text) => this.updateValue(text, "explicit")}
         />
         <TouchableOpacity

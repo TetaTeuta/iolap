@@ -12,7 +12,10 @@ const Stack = createStackNavigator();
 class App extends React.Component {
   render() {
     return (
-      <NavigationContainer style={styles.container}>
+      <NavigationContainer
+        screenOptions={{ headerTransparent: true }}
+        style={styles.container}
+      >
         <Stack.Navigator initialRouteName="MainView">
           <Stack.Screen name="MainView" component={MainView} />
           <Stack.Screen name="MovieView" component={MovieView} />

@@ -64,25 +64,34 @@ class PostMovie extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.movie__header}>What's your favorite movie?</Text>
         <TextInput
+          style={styles.textinput__box}
           placeholder="Name"
           onChangeText={(text) => this.updateValue(text, "name")}
         />
         <TextInput
+          style={styles.textinput__box}
           placeholder="Genre"
           onChangeText={(text) => this.updateValue(text, "genre")}
         />
         <TextInput
+          style={styles.textinput__box}
           placeholder="Rating"
           keyboardType="number-pad"
           onChangeText={(text) => this.updateValue(text, "rating")}
         />
         <TextInput
+          style={styles.textinput__box}
           placeholder="Explicit"
           onChangeText={(text) => this.updateValue(text, "explicit")}
         />
-        <TouchableOpacity onPress={() => this.submitValue()} color="#E9AFA3">
-          <Text>Submit</Text>
+        <TouchableOpacity
+          style={styles.button__main}
+          onPress={() => this.submitValue()}
+          color="#E9AFA3"
+        >
+          <Text style={styles.movie__submit}>Submit</Text>
         </TouchableOpacity>
       </View>
     );
@@ -104,6 +113,30 @@ const styles = StyleSheet.create({
     height: 40,
     width: 300,
     borderColor: "gray",
-    borderWidth: 1
+    borderWidth: 1,
+    borderRadius: 30,
+    margin: 5,
+    paddingLeft: 30,
+    height: 60
+  },
+  button__main: {
+    color: "#ffffff",
+    backgroundColor: "#E9AFA3",
+    width: 300,
+    height: 60,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 30
+  },
+  movie__header: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#ffffff",
+    marginBottom: 50
+  },
+  movie__submit: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#ffffff"
   }
 });

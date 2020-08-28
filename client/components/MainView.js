@@ -11,25 +11,19 @@ import {
 } from "react-native";
 
 export default class MainView extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      list: []
-    };
+  state = {
+    data: []
+  };
+
+  componentWillMount() {
+    this.fetchData();
   }
 
-  componentDidMount() {
-    return fetch("http://192.168.5.13:3000/api/v1/movies")
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          list: responseJson
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  fetchData = async () => {
+    const response = await fetch("http://192.168.5.13:3000/api/v1/movies");
+    const json = await response.json();
+    this.setState({ data: json });
+  };
 
   getMovie(movieid) {
     fetch("http://192.168.5.13:3000/api/v1/movies/" + movieid, {
@@ -54,39 +48,29 @@ export default class MainView extends React.Component {
   }
 
   render() {
-    const movies = this.state.list.map((movie, key) => {
-      return (
-        <TouchableOpacity
-          onPress={() => {
-            this.getMovie(movie.id);
-          }}
-        >
-          <View style={styles.movie__preview} key={key}>
-            <Button
-              style={styles.button__main}
-              title="X"
-              color="#pink"
-              onPress={() => this.deleteMovie(movie.id)}
-            />
-
-            <Text style={styles.movie__header}>{movie.name}</Text>
-            <Text style={styles.movie__text}>{movie.genre}</Text>
-          </View>
-        </TouchableOpacity>
-      );
-    });
-
     return (
       <ScrollView>
-        <View style={styles.container}>
-          <TouchableOpacity
-            style={styles.button__main}
-            onPress={() => this.props.navigation.navigate("PostMovie")}
-          >
-            <Text>Add movie</Text>
-          </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button__main}
+          onPress={() => this.props.navigation.navigate("PostMovie")}
+        >
+          <Text style={styles.movie__header}>Add new movie</Text>
+        </TouchableOpacity>
 
-          {movies}
+        <View style={styles.container}>
+          <FlatList
+            data={this.state.data}
+            keyExtructor={(x, i) => i}
+            renderItem={({ item }) => (
+              <View style={styles.movie__preview}>
+                <TouchableOpacity onPress={() => this.deleteMovie(item.id)}>
+                  <Text>Delete Movie</Text>
+                </TouchableOpacity>
+                <Text style={styles.movie__header}>{item.name}</Text>
+                <Text style={styles.movie__text}>{item.genre}</Text>
+              </View>
+            )}
+          />
         </View>
       </ScrollView>
     );
@@ -98,8 +82,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#685044",
     alignItems: "center",
-    justifyContent: "center",
-    padding: 14
+    justifyContent: "center"
   },
   movie__preview: {
     margin: 10,
@@ -113,13 +96,21 @@ const styles = StyleSheet.create({
   movie__header: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#ffffff"
+    color: "#ffffff",
+    letterSpacing: 1,
+    textAlign: "center"
   },
   movie__text: {
-    color: "#ffffff"
+    color: "#ffffff",
+    letterSpacing: 1
   },
   button__main: {
-    borderRadius: 50,
-    color: "#E9AFA3"
+    color: "#ffffff",
+    backgroundColor: "#E9AFA3",
+    width: "100%",
+    height: 60,
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "flex-start"
   }
 });

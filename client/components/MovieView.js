@@ -3,12 +3,12 @@ import { StyleSheet, Text, View } from "react-native";
 
 class MovieView extends React.Component {
   render() {
-    const { movie } = this.props;
-    console.log(movie + " tralala");
+    const { data } = this.props.route.params;
+    console.log(data + " tralala");
 
     return (
       <View style={styles.container}>
-        <Text>{movie.name}</Text>
+        <Text>{data}</Text>
       </View>
     );
   }

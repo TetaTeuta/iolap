@@ -6,7 +6,8 @@ import {
   View,
   Button,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  FlatList
 } from "react-native";
 
 export default class MainView extends React.Component {
@@ -37,7 +38,7 @@ export default class MainView extends React.Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    }).then(this.props.navigation.navigate("MovieView"));
+    }).then(this.props.navigation.navigate("MovieView", { data: movieid }));
   }
 
   deleteMovie(movieid) {
@@ -47,12 +48,13 @@ export default class MainView extends React.Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
+    }).then(() => {
+      alert("Movie Deleted");
     });
   }
 
   render() {
     const movies = this.state.list.map((movie, key) => {
-      console.log(movie);
       return (
         <TouchableOpacity
           onPress={() => {

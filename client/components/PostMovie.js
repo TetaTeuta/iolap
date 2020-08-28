@@ -58,7 +58,7 @@ class PostMovie extends React.Component {
     })
       .then((res) => res.json())
       .catch((error) => console.error("Error:", error))
-      .then((response) => console.log("Sucess:", response));
+      .then((response) => alert("Movie added"));
   }
 
   render() {

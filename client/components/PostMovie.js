@@ -126,7 +126,8 @@ const styles = StyleSheet.create({
     height: 60,
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 30
+    borderRadius: 30,
+    marginTop: 5
   },
   movie__header: {
     fontSize: 20,

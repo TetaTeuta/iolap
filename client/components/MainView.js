@@ -64,7 +64,7 @@ export default class MainView extends React.Component {
             renderItem={({ item }) => (
               <View style={styles.movie__preview}>
                 <TouchableOpacity onPress={() => this.deleteMovie(item.id)}>
-                  <Text>Delete Movie</Text>
+                  <Text style={styles.button__delete}>X</Text>
                 </TouchableOpacity>
                 <Text style={styles.movie__header}>{item.name}</Text>
                 <Text style={styles.movie__text}>{item.genre}</Text>
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
   movie__preview: {
     margin: 10,
-    height: 100,
+    height: 120,
     width: 300,
     alignItems: "center",
     justifyContent: "center",
@@ -112,5 +112,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "flex-start"
+  },
+  button__delete: {
+    backgroundColor: "#F9DEC9",
+    height: 20,
+    width: 20,
+    textAlign: "center",
+    borderRadius: 20,
+    marginBottom: 5
   }
 });

@@ -14,7 +14,7 @@ export default StyleSheet.create({
     letterSpacing: 1,
     textAlign: "center",
     marginBottom: 100,
-    backgroundColor: "#E9AFA3",
+    backgroundColor: "#3A405A",
     height: 90,
     width: "100%",
     alignItems: "center"

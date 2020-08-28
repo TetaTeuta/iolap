@@ -39,15 +39,8 @@ export default class MainView extends React.Component {
 
   render() {
     return (
-      <ScrollView>
-        <TouchableOpacity
-          style={styles.button__main}
-          onPress={() => this.props.navigation.navigate("PostMovie")}
-        >
-          <Text style={styles.movie__header}>Add new movie</Text>
-        </TouchableOpacity>
-
-        <View style={styles.container}>
+      <View style={styles.container}>
+        <ScrollView>
           <FlatList
             data={this.state.data}
             keyExtructor={(x, i) => i}
@@ -68,8 +61,14 @@ export default class MainView extends React.Component {
               </TouchableOpacity>
             )}
           />
-        </View>
-      </ScrollView>
+          <TouchableOpacity
+            style={styles.button__main}
+            onPress={() => this.props.navigation.navigate("PostMovie")}
+          >
+            <Text style={styles.movie__header}>Add Movie</Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </View>
     );
   }
 }

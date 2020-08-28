@@ -5,7 +5,8 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: "#685044",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    padding: 10
   },
   movie__preview: {
     margin: 10,
@@ -30,16 +31,17 @@ export default StyleSheet.create({
   button__main: {
     color: "#ffffff",
     backgroundColor: "#E9AFA3",
-    width: "100%",
+    width: 300,
     height: 60,
     alignItems: "center",
     justifyContent: "center",
-    alignSelf: "flex-start"
+    borderRadius: 30,
+    margin: 10
   },
   button__delete: {
     backgroundColor: "#F9DEC9",
-    height: 20,
-    width: 20,
+    height: 23,
+    width: 23,
     textAlign: "center",
     borderRadius: 20,
     marginBottom: 5

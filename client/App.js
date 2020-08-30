@@ -6,7 +6,6 @@ import UpdateMovie from "./components/UpdateMovie";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet, Text, View } from "react-native";
 
 const Stack = createStackNavigator();
 

@@ -1,7 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import styles from "../styles/PostMovie.style.js";
-import { Text, View, TextInput, TouchableOpacity } from "react-native";
+import {
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView
+} from "react-native";
 
 class PostMovie extends React.Component {
   constructor() {
@@ -81,12 +87,14 @@ class PostMovie extends React.Component {
           onChangeText={(text) => this.updateValue(text, "explicit")}
         />
         <TouchableOpacity
-          style={styles.button__main}
+          style={styles.button__submit}
           onPress={() => this.submitValue()}
-          color="#E9AFA3"
         >
           <Text style={styles.movie__submit}>Submit</Text>
         </TouchableOpacity>
+        {Platform.OS === "android" ? (
+          <KeyboardAvoidingView behavior="height" />
+        ) : null}
       </View>
     );
   }

@@ -15,7 +15,9 @@ class MovieView extends React.Component {
         <Text style={styles.movie__text}>{data.explicit}</Text>
         <TouchableOpacity
           style={styles.button__main}
-          onPress={() => this.props.navigation.navigate("UpdateMovie")}
+          onPress={() =>
+            this.props.navigation.navigate("UpdateMovie", { data: data })
+          }
         >
           <Text style={styles.movie__update}>Update movie info</Text>
         </TouchableOpacity>

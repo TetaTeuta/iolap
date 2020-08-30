@@ -1,12 +1,9 @@
 exports.up = (knex, Promise) => {
   return knex.schema.createTable("movies", (table) => {
     table.increments();
-    table
-      .string("name")
-      .notNullable()
-      .unique();
+    table.string("name").unique();
     table.string("genre").notNullable();
-    table.integer("rating");
+    table.integer("rating").notNullable();
     table.boolean("explicit");
   });
 };

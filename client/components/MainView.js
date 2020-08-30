@@ -6,7 +6,8 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
-  FlatList
+  FlatList,
+  KeyboardAvoidingView
 } from "react-native";
 import styles from "../styles/MainView.style.js";
 
@@ -53,11 +54,14 @@ export default class MainView extends React.Component {
                   })
                 }
               >
-                <TouchableOpacity onPress={() => this.deleteMovie(item.id)}>
-                  <Text style={styles.button__delete}>X</Text>
+                <TouchableOpacity
+                  style={styles.button__delete}
+                  onPress={() => this.deleteMovie(item.id)}
+                >
+                  <Text style={styles.button__deleteX}>X</Text>
                 </TouchableOpacity>
-                <Text style={styles.movie__header}>{item.name}</Text>
-                <Text style={styles.movie__text}>{item.genre}</Text>
+                <Text style={styles.movie__title}>{item.name}</Text>
+                <Text style={styles.movie__genre}>{item.genre}</Text>
               </TouchableOpacity>
             )}
           />
@@ -65,7 +69,7 @@ export default class MainView extends React.Component {
             style={styles.button__main}
             onPress={() => this.props.navigation.navigate("PostMovie")}
           >
-            <Text style={styles.movie__header}>Add Movie</Text>
+            <Text style={styles.movie__title}>Add Movie</Text>
           </TouchableOpacity>
         </ScrollView>
       </View>

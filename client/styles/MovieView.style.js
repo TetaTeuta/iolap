@@ -8,7 +8,7 @@ export default StyleSheet.create({
     justifyContent: "flex-start"
   },
   movie__header: {
-    fontSize: 50,
+    fontSize: 30,
     fontWeight: "bold",
     color: "#ffffff",
     letterSpacing: 1,
@@ -17,13 +17,12 @@ export default StyleSheet.create({
     backgroundColor: "#3A405A",
     height: 90,
     width: "100%",
-    alignItems: "center"
+    paddingTop: 20
   },
   movie__text: {
     color: "#ffffff",
     letterSpacing: 1,
-    fontSize: 25,
-    alignItems: "flex-start"
+    fontSize: 25
   },
   button__main: {
     color: "#ffffff",

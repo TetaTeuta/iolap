@@ -5,8 +5,19 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: "#685044",
     alignItems: "center",
-    justifyContent: "center",
-    padding: 14
+    justifyContent: "flex-start"
+  },
+  movie__name: {
+    fontSize: 50,
+    fontWeight: "bold",
+    color: "#ffffff",
+    letterSpacing: 1,
+    textAlign: "center",
+    backgroundColor: "#3A405A",
+    height: 90,
+    width: "100%",
+    marginBottom: 100,
+    padding: 10
   },
   textinput__box: {
     height: 40,
@@ -18,13 +29,7 @@ export default StyleSheet.create({
     paddingLeft: 30,
     height: 60
   },
-  movie__header: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#ffffff",
-    marginBottom: 50
-  },
-  button__submit: {
+  button__save: {
     color: "#ffffff",
     backgroundColor: "#E9AFA3",
     width: 300,
@@ -34,7 +39,7 @@ export default StyleSheet.create({
     borderRadius: 30,
     marginTop: 5
   },
-  movie__submit: {
+  button__text: {
     fontSize: 20,
     fontWeight: "bold",
     color: "#ffffff"

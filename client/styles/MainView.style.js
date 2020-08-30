@@ -15,16 +15,16 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#3A405A",
-    borderRadius: 20
+    borderRadius: 20,
+    padding: 10
   },
-  movie__header: {
+  movie__title: {
     fontSize: 20,
     fontWeight: "bold",
     color: "#ffffff",
-    letterSpacing: 1,
-    textAlign: "center"
+    letterSpacing: 1
   },
-  movie__text: {
+  movie__genre: {
     color: "#ffffff",
     letterSpacing: 1
   },
@@ -36,14 +36,16 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 30,
-    margin: 10
+    marginTop: 5
   },
   button__delete: {
     backgroundColor: "#F9DEC9",
     height: 23,
     width: 23,
-    textAlign: "center",
     borderRadius: 20,
-    marginBottom: 5
+    alignSelf: "flex-end"
+  },
+  button__deleteX: {
+    textAlign: "center"
   }
 });

@@ -24,5 +24,22 @@ export default StyleSheet.create({
     letterSpacing: 1,
     fontSize: 25,
     alignItems: "flex-start"
+  },
+  button__main: {
+    color: "#ffffff",
+    backgroundColor: "#E9AFA3",
+    width: 300,
+    height: 60,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 30,
+    margin: 10
+  },
+  movie__update: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#ffffff",
+    letterSpacing: 1,
+    textAlign: "center"
   }
 });

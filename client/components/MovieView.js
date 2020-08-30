@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 import styles from "../styles/MovieView.style.js";
 
 class MovieView extends React.Component {
@@ -13,6 +13,12 @@ class MovieView extends React.Component {
         <Text style={styles.movie__text}>Movie genre: {data.genre}</Text>
         <Text style={styles.movie__text}>Movie rating: {data.rating}</Text>
         <Text style={styles.movie__text}>{data.explicit}</Text>
+        <TouchableOpacity
+          style={styles.button__main}
+          onPress={() => this.props.navigation.navigate("UpdateMovie")}
+        >
+          <Text style={styles.movie__update}>Update movie info</Text>
+        </TouchableOpacity>
       </View>
     );
   }

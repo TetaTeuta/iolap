@@ -34,7 +34,6 @@ class UpdateMovie extends React.Component {
       body: JSON.stringify(data)
     })
       .then((response) => response.json())
-      .then((data) => console.log(data + "from submitvalue"))
       .then((error) => console.log(error));
   }
 

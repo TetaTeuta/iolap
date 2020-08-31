@@ -16,9 +16,13 @@ export default class MainView extends React.Component {
     data: []
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchData();
   }
+
+  // componentDidUpdate() {
+  //   this.fetchData();
+  // }
 
   fetchData = async () => {
     const response = await fetch("http://192.168.5.13:3000/api/v1/movies");
@@ -33,8 +37,11 @@ export default class MainView extends React.Component {
         Accept: "application/json",
         "Content-Type": "application/json"
       }
-    }).then(() => {
-      alert("Movie Deleted");
+    }).then((movieid) => {
+      this.state((prevState) => {
+        return prevState.filter((movie) => movie.movieid != movieid);
+        console.log(prevState);
+      });
     });
   }
 

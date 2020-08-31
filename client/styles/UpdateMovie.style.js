@@ -8,7 +8,7 @@ export default StyleSheet.create({
     justifyContent: "flex-start"
   },
   movie__name: {
-    fontSize: 50,
+    fontSize: 30,
     fontWeight: "bold",
     color: "#ffffff",
     letterSpacing: 1,
@@ -17,7 +17,7 @@ export default StyleSheet.create({
     height: 90,
     width: "100%",
     marginBottom: 100,
-    padding: 10
+    padding: 15
   },
   textinput__box: {
     height: 40,

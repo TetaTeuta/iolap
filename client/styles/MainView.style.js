@@ -36,7 +36,7 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 30,
-    marginTop: 5
+    margin: 10
   },
   button__delete: {
     backgroundColor: "#F9DEC9",
